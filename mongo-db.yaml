@@ -1,0 +1,7 @@
+services:
+  db:
+    image: mongodb/mongodb-community-server
+    command: mongod --quiet
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
