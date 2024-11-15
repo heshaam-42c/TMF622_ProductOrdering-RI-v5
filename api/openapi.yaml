@@ -5321,7 +5321,6 @@ components:
         - $ref: '#/components/schemas/Extensible'
         - $ref: '#/components/schemas/Addressable'
       description: Base entity schema for use in TMForum Open-APIs. Property.
-      type: object
     EntityRef:
       allOf:
         - $ref: '#/components/schemas/Extensible'
@@ -5448,12 +5447,10 @@ components:
         - $ref: '#/components/schemas/Extensible_FVO'
         - $ref: '#/components/schemas/Addressable_FVO'
       description: Base entity schema for use in TMForum Open-APIs. Property.
-      type: object
     Entity_MVO:
       allOf:
         - $ref: '#/components/schemas/Extensible'
       description: Base entity schema for use in TMForum Open-APIs. Property.
-      type: object
     ErrorMessage:
       allOf:
         - $ref: '#/components/schemas/Extensible'
@@ -6015,6 +6012,7 @@ components:
         propertyName: '@type'
     JsonPatch:
       description: A JSONPatch document as defined by RFC 6902
+      additionalProperties: false
       properties:
         op:
           description: The operation to be performed
@@ -6031,6 +6029,7 @@ components:
           type: string
         value:
           description: The value to be used within the operations.
+          type: string
         from:
           description: A string containing a JSON Pointer value.
           type: string
@@ -6589,6 +6588,7 @@ components:
         - $ref: '#/components/schemas/PartyRef'
         - $ref: '#/components/schemas/PartyRoleRef'
       type: object
+      additionalProperties: false
     PartyRefOrPartyRoleRef_FVO:
       discriminator:
         mapping:
@@ -6610,6 +6610,7 @@ components:
         - $ref: '#/components/schemas/PartyRef_MVO'
         - $ref: '#/components/schemas/PartyRoleRef_MVO'
       type: object
+      additionalProperties: false
     PartyRef_FVO:
       allOf:
         - $ref: '#/components/schemas/EntityRef_FVO'
@@ -9206,7 +9207,7 @@ components:
             type: number
           type: array
       required:
-        - 'geoJsonType'
+        - geoJsonType
       type: object
     GeographicSite_allOf:
       properties:
